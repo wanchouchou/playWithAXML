@@ -1,0 +1,19 @@
+本程序用于修改AXML二进制文件。目前完成的功能有：
+   1、混淆、替换AndroidManifes.xml中的属性名
+   2、向AXML中加入一个无效属性以实现AXML Ambiguity方案
+   
+使用平台：
+   由于加入了options相关代码，所以只能在LINUX环境下运行。
+限制：
+   目前只对utf-16编码的AXML文件进行处理，暂不支持UTF-8。不过后者简单很多，大家可以自己实现~
+使用方法：
+   1、下载https://github.com/wanchouchou/ManifestAmbiguity中的所有文件，并make，得到manifestAmbiguit可执行文件
+   2、chmod a+x manifestAmbiguity   #添加可执行权限
+   3、下载此分支下所有文件。
+   4、由于需要重签名apk，所以需要将自己的签名文件clientkeystore放在此目录下。
+   5、./handleAXML.py -s/--source=[Source.apk] -o/--out=new.apk -c/--confuse  -a/--ambiguity  
+       注意，由于某些原因，这里的-o 后的参必须为new.apk~~  -s 后跟源apk路径名 -c 表示混淆 -a 表示加入一个无效属性以实现AXML Ambiguity方案
+       可根据自己的需要选择。
+   6、程序执行过程中，会停留在签名阶段，输入自己clientkeystore对应的密码即可。
+   7、config.py为配置文件，具体作用里面有说明~
+   
