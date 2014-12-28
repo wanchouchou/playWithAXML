@@ -9,11 +9,13 @@
 使用方法：
    1、下载https://github.com/wanchouchou/ManifestAmbiguity中的所有文件，并make，得到manifestAmbiguit可执行文件
    2、chmod a+x manifestAmbiguity   #添加可执行权限
+   ps:之所以要这样做，是因为我太懒，不重写AXML Ambiguity方案的代码，为了复用它，就在后续的代码中直接调用这个可执行文件了...
    3、下载此分支下所有文件。
-   4、由于需要重签名apk，所以需要将自己的签名文件clientkeystore放在此目录下。
-   5、./handleAXML.py -s/--source=[Source.apk] -o/--out=new.apk -c/--confuse  -a/--ambiguity  
-       注意，由于某些原因，这里的-o 后的参必须为new.apk~~  -s 后跟源apk路径名 -c 表示混淆 -a 表示加入一个无效属性以实现AXML Ambiguity方案
-       可根据自己的需要选择。
+   4、由于需要重签名apk，所以需要将自己的签名文件keystore放在此目录下，并重命名为clientkeystore。
+   5、useage:
+       ./handleAXML.py -s/--source=[Source.apk] -o/--out=new.apk -c/--confuse  -a/--ambiguity  
+       注意，由于某些原因，这里的-o 后的参必须为new.apk~~  -s 后跟源apk名 -c 表示混淆 -a 表示加入一个无效属性以实现AXML Ambiguity方案
+   这两个参是可选的，大家可根据自己的需要选择。
    6、程序执行过程中，会停留在签名阶段，输入自己clientkeystore对应的密码即可。
    7、config.py为配置文件，具体作用里面有说明~
    
